@@ -1,0 +1,149 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <style>
+    /* إعدادات الصفحة */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* إعدادات العنوان */
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      color: #333;
+      margin-top: 50px;
+      margin-bottom: 40px;
+    }
+
+    /* الحاوية الرئيسية */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    /* قسم المحتوى */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* تصميم كل قسم */
+    .wave-section {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 80%;
+      max-width: 800px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .wave-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .wave-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    /* تصميم الصور */
+    .wave-image-container {
+      width: 40%;
+    }
+
+    .wave-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* تصميم النص */
+    .wave-text {
+      width: 60%;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .wave-text h2 {
+      font-size: 1.8em;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .wave-text p {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .wave-text h2:hover {
+      color: #004d40;
+    }
+
+    /* تحسين العرض على الشاشات الصغيرة */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .wave-section {
+        flex-direction: column;
+        width: 90%;
+      }
+
+      .wave-image-container {
+        width: 100%;
+      }
+
+      .wave-text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Interactive Waves App</h1>
+    <p style="text-align: center; color: #555; font-size: 1.2em;">Explore the exciting world of waves and learn interactively!</p>
+
+    <!-- القسم الأول -->
+    <div class="content">
+      <div class="wave-section">
+        <a href="home2.html" class="wave-link">
+          <div class="wave-image-container">
+            <img src="images/1.jpg" alt="Wave Home Image" class="wave-image">
+          </div>
+          <div class="wave-text">
+            <h2>We're Makin' Waves!</h2>
+            <p>Discover the wonders of waves and explore exciting new concepts.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

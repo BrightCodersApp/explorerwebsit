@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World AR View with Live Camera</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/ar.js@1.7.2/aframe-ar.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        #world-viewer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .scan-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+            text-align: center;
+        }
+        #WORLD {
+            color: #ffd700;
+          }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            color: black;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+<div class="header">
+    <div class="back-icon" id="back-icon">
+        <a href="home2.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+    <div class="title">
+        <a href="Waves.html">
+            <span id="3D">3D</span>
+        </a>
+        <a href="cube.html">
+            <span id="cube">CUBE</span>
+        </a>
+        <a href="world.html">
+            <span id="WORLD">WORLD</span>
+        </a>
+        <a href="#.html">
+            <span id="HEADSET">HEADSET</span>
+        </a>
+    </div>
+</div>
+
+<!-- AR Camera Feed Section -->
+<a-scene embedded arjs>
+    <a-camera position="0 0 0" look-controls>
+        <a-entity id="ar-object" geometry="primitive: box; height: 1; width: 1; depth: 1" position="0 0 -3" material="color: blue"></a-entity>
+    </a-camera>
+
+    <!-- Plane Detection and Surface Scanning -->
+    <a-entity id="ground-plane" geometry="primitive: plane; height: 100; width: 100" rotation="-90 0 0" visible="false"></a-entity>
+</a-scene>
+
+<!-- Message Overlay -->
+<div class="scan-message">Scan a surface and place the object</div>
+
+<!-- Footer Section -->
+<div class="footer">
+    <div class="icon" onclick="scaleObject(1.1)">Scale Up</div>
+    <div class="icon" onclick="scaleObject(0.9)">Scale Down</div>
+    <div class="icon" onclick="rotateObject()">Rotate</div>
+</div>
+
+<script>
+    let arObject = document.getElementById('ar-object');
+
+    function scaleObject(scaleFactor) {
+        let currentScale = arObject.getAttribute('scale');
+        arObject.setAttribute('scale', {
+            x: currentScale.x * scaleFactor,
+            y: currentScale.y * scaleFactor,
+            z: currentScale.z * scaleFactor
+        });
+    }
+
+    function rotateObject() {
+        let currentRotation = arObject.getAttribute('rotation');
+        arObject.setAttribute('rotation', {
+            x: currentRotation.x,
+            y: currentRotation.y + 30,
+            z: currentRotation.z
+        });
+    }
+</script>
+
+</body>
+</html>

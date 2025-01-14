@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We're Makin' Waves!</title>
+  <style>
+    /* إعدادات الصفحة */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+    }
+
+    /* إعدادات العنوان */
+    h1 {
+      text-align: center;
+      font-size: 2.8em;
+      color: #333;
+      margin-top: 50px;
+      margin-bottom: 40px;
+    }
+
+    /* الحاوية الرئيسية */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+    }
+
+    /* تنسيق قسم المحتوى */
+    .content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    /* تنسيق كل قسم يحتوي على صورة ونص */
+    .wave-section {
+      display: flex;
+      flex-direction: row; /* ترتيب الصور والنصوص بشكل أفقي */
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 80%;
+      max-width: 800px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      margin: 0 auto;
+    }
+
+    .wave-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .wave-link {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+
+    /* تنسيق الصورة */
+    .wave-image-container {
+      width: 40%;
+    }
+
+    .wave-image {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    /* تنسيق النص */
+    .wave-text {
+      width: 60%;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .wave-text h2 {
+      font-size: 1.8em;
+      color: #00796b;
+      margin-bottom: 10px;
+    }
+
+    .wave-text p {
+      font-size: 1.1em;
+      color: #555;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* تغيير اللون عند المرور فوق العنوان */
+    .wave-text h2:hover {
+      color: #004d40;
+    }
+
+    /* تحسين التنسيق للعرض على الأجهزة الصغيرة */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+
+      .wave-section {
+        flex-direction: column; /* تغيير الاتجاه إلى عمودي على الأجهزة الصغيرة */
+        width: 90%;
+      }
+
+      .wave-image-container {
+        width: 100%;
+      }
+
+      .wave-text {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>We're Makin' Waves!</h1>
+
+    <div class="content">
+      <!-- القسم 2 -->
+      <div class="wave-section">
+        <a href="Waves.html" class="wave-link">
+          <div class="wave-image-container">
+            <img src="images/2.png" alt="Wave Image 2" class="wave-image">
+          </div>
+          <div class="wave-text">
+            <h2>Wave-o-Rama</h2>
+            <p>
+              Use this wave machine to generate different types of waves. Stamp them down to compare them. You can control amplitude, wave length, and frequency.</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
