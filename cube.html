@@ -1,19 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Merge Cube AR Test</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+  <meta charset="UTF-8">
+  <title>AR.js - Multiple Markers (Cube Example)</title>
+
+  <!-- استدعاء A-Frame -->
+  <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+
+  <!-- استدعاء AR.js (نسخة A-Frame) -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+
+  <style>
+    html, body {
+      margin: 0; 
+      padding: 0; 
+      width: 100%; 
+      height: 100%; 
+      overflow: hidden;
+      background: #000;
+    }
+    #info {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #fff;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      z-index: 10;
+      font-family: sans-serif;
+      border-radius: 8px;
+    }
+  </style>
 </head>
-<body style="margin: 0; overflow: hidden;">
-    <a-scene embedded arjs>
-        <!-- ربط ملف .patt -->
-        <a-marker type="pattern" url="./merge-cube-marker.patt">
-            <a-box position="0 0.5 0" color="blue" animation="property: rotation; to: 360 360 360; loop: true; dur: 5000"></a-box>
-        </a-marker>
-        <a-entity camera></a-entity>
-    </a-scene>
+<body>
+  <div id="info">
+    <h3>مثال: ست علامات مستقلة لمكعّب</h3>
+    <p>حرّك المكعّب أمام الكاميرا؛ كل وجه لديه باترن (علامة) مختلفة.</p>
+  </div>
+
+  <!-- مشهد A-Frame مدمج مع AR.js -->
+  <a-scene
+    embedded
+    arjs="sourceType: webcam; debugUIEnabled: false;"
+    vr-mode-ui="enabled: false"
+  >
+    <!-- الوجه 1 -->
+    <a-marker type="pattern" url="pattern-face1.patt">
+      <a-box position="0 0.5 0" material="color: red;"></a-box>
+    </a-marker>
+
+    <!-- الوجه 2 -->
+    <a-marker type="pattern" url="pattern-face2.patt">
+      <a-sphere position="0 0.5 0" material="color: blue;"></a-sphere>
+    </a-marker>
+
+    <!-- الوجه 3 -->
+    <a-marker type="pattern" url="pattern-face3.patt">
+      <a-cylinder position="0 0.5 0" material="color: green;"></a-cylinder>
+    </a-marker>
+
+    <!-- الوجه 4 -->
+    <a-marker type="pattern" url="pattern-face4.patt">
+      <a-torus position="0 0.5 0" radius="0.3" radius-tubular="0.05" material="color: yellow;"></a-torus>
+    </a-marker>
+
+    <!-- الوجه 5 -->
+    <a-marker type="pattern" url="pattern-face5.patt">
+      <!-- عرض نموذج ثلاثي الأبعاد بصيغة glTF/GLB -->
+      <a-entity
+        gltf-model="url(models/yourmodel.gltf)"
+        scale="0.5 0.5 0.5"
+        position="0 0 0"
+      ></a-entity>
+    </a-marker>
+
+    <!-- الوجه 6 -->
+    <a-marker type="pattern" url="pattern-face5(1).patt">
+      <a-box position="0 0.5 0" rotation="45 0 45" material="color: pink;"></a-box>
+    </a-marker>
+
+    <!-- الكاميرا -->
+    <a-entity camera></a-entity>
+  </a-scene>
 </body>
 </html>
